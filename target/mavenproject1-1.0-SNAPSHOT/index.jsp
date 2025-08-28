@@ -75,31 +75,41 @@
                 box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
             }
             
-            .avatar-selection {
+            .color-selection, .avatar-selection {
                 margin: 25px 0;
             }
             
-            .avatar-selection h3 {
+            .color-selection h3, .avatar-selection h3 {
                 margin-bottom: 15px;
                 color: #555;
                 text-align: center;
             }
             
-            .avatar-options {
+            .color-options, .avatar-options {
                 display: flex;
                 justify-content: space-around;
                 flex-wrap: wrap;
             }
             
-            .avatar-option {
+            .color-option, .avatar-option {
                 text-align: center;
                 cursor: pointer;
                 transition: transform 0.3s;
                 width: 30%;
             }
             
-            .avatar-option:hover {
+            .color-option:hover, .avatar-option:hover {
                 transform: scale(1.05);
+            }
+            
+            .color-circle {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                margin: 0 auto 8px;
+                transition: all 0.3s;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             }
             
             .avatar-img {
@@ -112,8 +122,13 @@
                 transition: all 0.3s;
             }
             
-            .avatar-option input[type="radio"] {
+            .color-option input[type="radio"], .avatar-option input[type="radio"] {
                 display: none;
+            }
+            
+            .color-option input[type="radio"]:checked + .color-circle {
+                border-color: #667eea;
+                transform: scale(1.1);
             }
             
             .avatar-option input[type="radio"]:checked + .avatar-img {
@@ -121,7 +136,7 @@
                 background-color: #f0f4ff;
             }
             
-            .avatar-label {
+            .color-label, .avatar-label {
                 display: block;
                 font-weight: 500;
                 color: #666;
@@ -176,12 +191,12 @@
                     padding: 20px;
                 }
                 
-                .avatar-option {
+                .color-option, .avatar-option {
                     width: 100%;
                     margin-bottom: 15px;
                 }
                 
-                .avatar-options {
+                .color-options, .avatar-options {
                     flex-direction: column;
                     align-items: center;
                 }
@@ -201,9 +216,27 @@
                         <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
                     </div>
                     
-                    <div class="input-group">
-                        <label for="room">Sala de chat</label>
-                        <input type="text" id="room" name="room" placeholder="Nome da sala" required>
+                    <div class="color-selection">
+                        <h3>Escolha a cor do chat</h3>
+                        <div class="color-options">
+                            <label class="color-option">
+                                <input type="radio" name="color" value="black" required>
+                                <div class="color-circle" style="background-color: #000000;"></div>
+                                <span class="color-label">Preto</span>
+                            </label>
+                            
+                            <label class="color-option">
+                                <input type="radio" name="color" value="purple">
+                                <div class="color-circle" style="background-color: #764BA2;"></div>
+                                <span class="color-label">Roxo</span>
+                            </label>
+                            
+                            <label class="color-option">
+                                <input type="radio" name="color" value="blue">
+                                <div class="color-circle" style="background-color: #667EEA;"></div>
+                                <span class="color-label">Azul</span>
+                            </label>
+                        </div>
                     </div>
                     
                     <div class="avatar-selection">
@@ -236,7 +269,7 @@
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn">Entrar no Bate Papo</button>
+                    <button type="submit" class="btn">Entrar</button>
                 </form>
             </div>
             
@@ -249,11 +282,24 @@
             // Adiciona interatividade à seleção de avatar
             document.addEventListener('DOMContentLoaded', function() {
                 const avatarOptions = document.querySelectorAll('.avatar-option');
+                const colorOptions = document.querySelectorAll('.color-option');
                 
                 avatarOptions.forEach(option => {
                     option.addEventListener('click', function() {
                         // Remove a seleção anterior
                         avatarOptions.forEach(opt => {
+                            opt.querySelector('input[type="radio"]').checked = false;
+                        });
+                        
+                        // Marca a opção atual
+                        this.querySelector('input[type="radio"]').checked = true;
+                    });
+                });
+                
+                colorOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Remove a seleção anterior
+                        colorOptions.forEach(opt => {
                             opt.querySelector('input[type="radio"]').checked = false;
                         });
                         
