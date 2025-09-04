@@ -210,29 +210,29 @@
             </div>
             
             <div class="form-content">
-                <form name="frchat" action="sala.jsp" method="GET">
+                <form name="frchat" action="sala.jsp" method="POST" action = 'sala.jsp'>
                     <div class="input-group">
-                        <label for="username">Nome de usuário</label>
-                        <input type="text" id="username" name="username" placeholder="Digite seu nome" required>
+                        <label for="txtnick">Nome de usuário</label>
+                        <input type="text" id="txtnick" name="txtnick" placeholder="Digite seu nome" required>
                     </div>
                     
                     <div class="color-selection">
                         <h3>Escolha a cor do chat</h3>
                         <div class="color-options">
                             <label class="color-option">
-                                <input type="radio" name="color" value="black" required>
+                                <input type="radio" name="radcor" value="black" required>
                                 <div class="color-circle" style="background-color: #000000;"></div>
                                 <span class="color-label">Preto</span>
                             </label>
                             
                             <label class="color-option">
-                                <input type="radio" name="color" value="purple">
+                                <input type="radio" name="radcor" value="purple">
                                 <div class="color-circle" style="background-color: #764BA2;"></div>
                                 <span class="color-label">Roxo</span>
                             </label>
                             
                             <label class="color-option">
-                                <input type="radio" name="color" value="blue">
+                                <input type="radio" name="radcor" value="blue">
                                 <div class="color-circle" style="background-color: #667EEA;"></div>
                                 <span class="color-label">Azul</span>
                             </label>
@@ -243,27 +243,27 @@
                         <h3>Escolha seu avatar</h3>
                         <div class="avatar-options">
                             <label class="avatar-option">
-                                <input type="radio" name="avatar" value="house" required>
-                                <svg class="avatar-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF6B6B">
+                                <input type="radio" name="radavatar" value="house" required>
+                                <img class="avatar-img" src='imagens/yelloMan.jpg' viewBox="0 0 24 24" fill="#FF6B6B">
                                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                                </svg>
+                                </img>
                                 <span class="avatar-label">Casinha</span>
                             </label>
                             
                             <label class="avatar-option">
-                                <input type="radio" name="avatar" value="man">
-                                <svg class="avatar-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#667EEA">
+                                <input type="radio" name="radavatar" value="man">
+                                <img class="avatar-img" src='imagens/googleMan.jpg' viewBox="0 0 24 24" fill="#667EEA">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                </svg>
+                                </img>
                                 <span class="avatar-label">Hominho</span>
                             </label>
                             
                             <label class="avatar-option">
-                                <input type="radio" name="avatar" value="woman">
-                                <svg class="avatar-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#764BA2">
+                                <input type="radio" name="radavatar" value="woman">
+                                <img class="avatar-img" src='imagens/hatGirl.jpg' viewBox="0 0 24 24" fill="#764BA2">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                     <circle cx="12" cy="7" r="2"/>
-                                </svg>
+                                </img>
                                 <span class="avatar-label">Menininha</span>
                             </label>
                         </div>
